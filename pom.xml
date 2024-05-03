@@ -17,6 +17,11 @@
     <java.version>17</java.version>
     <spotless.version>2.43.0</spotless.version>
   </properties>
+  <scm>
+     <url>https://github.com/jpowell96/j-codequality-starter</url>
+      <connection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</connection>
+      <developerConnection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</developerConnection>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -37,6 +42,12 @@
       <type>pom</type>
     </dependency>
 
+<dependency>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-project-info-reports-plugin</artifactId>
+  <version>3.5.0</version>
+  <type>maven-plugin</type>
+</dependency>
   </dependencies>
 
   <build>
@@ -108,6 +119,11 @@
 
   <reporting>
     <plugins>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.5.0</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
@@ -132,10 +148,19 @@
               <groupId>com.h3xstream.findsecbugs</groupId>
               <artifactId>findsecbugs-plugin</artifactId>
               <version>1.12.0</version>
-              <!-- TODO: Add report for SpotBugs -->
             </plugin>
           </plugins>
         </configuration>
+                      <!-- TODO: Add report for SpotBugs -->
+              <reportSets>
+                <reportSet>
+                  <!-- by default, id = "default" -->
+                  <reports>
+                    <!-- select non-aggregate reports -->
+                    <report>spotbugs</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
       </plugin>
     </plugins>
   </reporting>
