@@ -80,3 +80,9 @@ mvn clean compile site:run
 ```
 
 Once the site is running, navigate to the Reports Page to find the SpotBugs report.
+
+### Setting Up Git Hooks
+1. Run the `setup_hooks.sh` file
+```sh
+./scripts/setup_githooks.sh
+```
