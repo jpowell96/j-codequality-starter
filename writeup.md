@@ -150,3 +150,13 @@ Together these tools give you linting and static analysis that you can customize
 If you want to see a sample of them in action, you can find a sample maven project I made, complete with fully configured pom.xml file here:
 
 https://github.com/jpowell96/j-codequality-starter
+
+
+### Links
+- Spotless Github link
+- SpotBugs Main Site
+- SpotBugs java docs
+- SpotBugs Maven Plugin Docs
+- PMD Main Site
+- PMD Java Docs
+- PMD Maven Plugin Docs
