@@ -13,15 +13,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>codequality</name>
   <description>Demo project for Spring Boot</description>
+  <scm>
+    <connection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</connection>
+    <developerConnection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</developerConnection>
+    <url>https://github.com/jpowell96/j-codequality-starter</url>
+  </scm>
   <properties>
     <java.version>17</java.version>
     <spotless.version>2.43.0</spotless.version>
   </properties>
-  <scm>
-     <url>https://github.com/jpowell96/j-codequality-starter</url>
-      <connection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</connection>
-      <developerConnection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</developerConnection>
-  </scm>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -42,12 +42,12 @@
       <type>pom</type>
     </dependency>
 
-<dependency>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-project-info-reports-plugin</artifactId>
-  <version>3.5.0</version>
-  <type>maven-plugin</type>
-</dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-project-info-reports-plugin</artifactId>
+      <version>3.5.0</version>
+      <type>maven-plugin</type>
+    </dependency>
   </dependencies>
 
   <build>
@@ -119,7 +119,7 @@
 
   <reporting>
     <plugins>
-     <plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.5.0</version>
@@ -151,16 +151,16 @@
             </plugin>
           </plugins>
         </configuration>
-                      <!-- TODO: Add report for SpotBugs -->
-              <reportSets>
-                <reportSet>
-                  <!-- by default, id = "default" -->
-                  <reports>
-                    <!-- select non-aggregate reports -->
-                    <report>spotbugs</report>
-                  </reports>
-                </reportSet>
-              </reportSets>
+        <!-- TODO: Add report for SpotBugs -->
+        <reportSets>
+          <reportSet>
+            <!-- by default, id = "default" -->
+            <reports>
+              <!-- select non-aggregate reports -->
+              <report>spotbugs</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
     </plugins>
   </reporting>
