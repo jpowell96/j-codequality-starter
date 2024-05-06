@@ -1,9 +1,19 @@
 package com.jjpowell.codequality.repository;
 
-import java.util.Map;
+import com.jjpowell.codequality.domain.ForumPost;
+import com.jjpowell.codequality.domain.PostComment;
+import java.util.*;
 
-public class InMemoryNotesRepository {
-    Map<Integer, String> notes;
+public interface PostRepository {
+    void savePost(String title, String content);
 
-    public InMemoryNotesRepository() {}
+    Optional<ForumPost> getPost(UUID id);
+
+    void deletePost(UUID id);
+
+    void updatePost(ForumPost post);
+
+    List<PostComment> getComments(UUID id);
+
+    List<ForumPost> getPosts();
 }

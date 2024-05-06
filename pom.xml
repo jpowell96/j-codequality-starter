@@ -6,13 +6,13 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.2.5</version>
     <relativePath></relativePath>
-    <!-- lookup parent from repository -->
   </parent>
   <groupId>com.jjpowell</groupId>
   <artifactId>codequality</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>codequality</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Sample Project Setup Using Spotless for Linting, and Spotbugs + PMD for static code analysis</description>
+  <url>https://github.com/jpowell96/j-codequality-starter</url>
   <scm>
     <connection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</connection>
     <developerConnection>scm:git:https://github.com/jpowell96/j-codequality-starter.git</developerConnection>
@@ -20,6 +20,8 @@
   </scm>
   <properties>
     <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <spotless.version>2.43.0</spotless.version>
   </properties>
   <dependencies>
@@ -74,7 +76,7 @@
             </palantirJavaFormat>
           </java>
 
-          <!-- Speciffy how to format the pom.xml file for this project-->
+          <!-- Specify how to format the pom.xml file for this project-->
           <pom>
             <!-- These are the defaults, you can override if you want -->
             <includes>
@@ -106,13 +108,28 @@
               <version>1.12.0</version>
             </plugin>
           </plugins>
+          <excludeFilterFile>src/main/resources/spotbugs/spotbugs-exclusions.xml</excludeFilterFile>
         </configuration>
       </plugin>
+
+      <!-- PMD Plugin. Source Code Static Analysis Tool:
+        Official Plugin Documentation: https://maven.apache.org/plugins/maven-pmd-plugin/
+        Official PMD Documentation: https://pmd.github.io/
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.22.0</version>
         <!-- Link to a custom ruleset file for rules we care about -->
+        <configuration>
+          <rulesets>
+            <ruleset>src/main/resources/pmd/custom-ruleset.xml</ruleset>
+          </rulesets>
+          <excludes>
+            <!-- Do not run PMD against test files. We only care about source code -->
+            <exclude>**/test/**</exclude>
+          </excludes>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -128,6 +145,15 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.22.0</version>
+        <configuration>
+          <rulesets>
+            <ruleset>src/main/resources/pmd/custom-ruleset.xml</ruleset>
+          </rulesets>
+          <excludes>
+            <!-- Do not run PMD against test files. We only care about source code -->
+            <exclude>**/test/**</exclude>
+          </excludes>
+        </configuration>
         <reportSets>
           <reportSet>
             <!-- by default, id = "default" -->
@@ -150,11 +176,10 @@
               <version>1.12.0</version>
             </plugin>
           </plugins>
+          <excludeFilterFile>src/main/resources/spotbugs/spotbugs-exclusions.xml</excludeFilterFile>
         </configuration>
-        <!-- TODO: Add report for SpotBugs -->
         <reportSets>
           <reportSet>
-            <!-- by default, id = "default" -->
             <reports>
               <!-- select non-aggregate reports -->
               <report>spotbugs</report>

@@ -7,5 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CodequalityApplicationTests {
 
     @Test
-    void contextLoads() {}
+    void contextLoads() {
+        String a = "hello";
+        String b = "hello";
+        System.out.println(a == b);
+    }
 }
