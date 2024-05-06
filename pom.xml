@@ -59,7 +59,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <plugin>
-        <!-- TODO: Link to Spotless Github Repository-->
+        <!-- https://github.com/diffplug/spotless -->
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
         <version>${spotless.version}</version>
@@ -75,22 +75,6 @@
               <!-- defaults to false (optional, requires at least Palantir 2.39.0) -->
             </palantirJavaFormat>
           </java>
-
-          <!-- Specify how to format the pom.xml file for this project-->
-          <pom>
-            <!-- These are the defaults, you can override if you want -->
-            <includes>
-              <include>pom.xml</include>
-            </includes>
-
-            <sortPom>
-              <encoding>UTF-8</encoding>
-              <keepBlankLines>true</keepBlankLines>
-              <sortDependencies></sortDependencies>
-              <sortPlugins></sortPlugins>
-              <sortProperties>true</sortProperties>
-            </sortPom>
-          </pom>
         </configuration>
       </plugin>
       <plugin>
