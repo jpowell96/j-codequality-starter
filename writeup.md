@@ -1,5 +1,4 @@
-
-1. Background story with nice tag line.
+# We Have Code Quality At Home
 
 The best tool for the job isn't always the best tool you have available.
 
