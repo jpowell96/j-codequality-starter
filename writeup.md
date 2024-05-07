@@ -102,7 +102,15 @@ mvn clean compile spotbugs:check
 ```sh
 mvn clean compile spotbugs:gui
 ```
-TODO: Show how to use SuppressFBWarnings to suppress SpotBugs violations in a class
+
+If you want to suppress a SpotBugs Warning, you can use the @SuppressFBWarnings annotation with the SpotBugs errors as a parameter(s)
+
+```java
+@SuppressFBWarnings(value={"NM_METHOD_NAMING_CONVENTION", "NP_TOSTRING_COULD_RETURN_NULL"},justification = "This is why we ignore these FindBugs warnings.")
+public class MyClassWithSpotBugsWarnings {
+  // ...
+}
+```
 
 SpotBugs will not automatically fix any errors it finds. It's up to the developer to decide if it's findings warrant code changes.
 
@@ -142,7 +150,15 @@ mvn pmd:pmd
 # Check the code for any PMD violations
 mvn pmd:check
 ```
-TODO: Show how to use SuppressWarnings to suppress PMD violations in a class
+
+If you want to suppress a PMD violation you can do it like so:
+```java
+@SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+public class MyClassWithPMDViolations {
+    // Your code here
+}
+```
+
 Like SpotBugs, PMD will not automatically fix issues. It's up to the developer to decide if violations warrant changes, or ignore them.
 ### Putting it together
 
@@ -153,10 +169,9 @@ https://github.com/jpowell96/j-codequality-starter
 
 
 ### Links
-- Spotless Github link
-- SpotBugs Main Site
-- SpotBugs java docs
-- SpotBugs Maven Plugin Docs
-- PMD Main Site
-- PMD Java Docs
-- PMD Maven Plugin Docs
+- [Spotless Github](https://github.com/diffplug/spotless)
+- [SpotBugs Main Page](https://spotbugs.readthedocs.io/en/latest/introduction.html)
+- [SpotBugs Maven Plugin Docs](https://spotbugs.github.io/spotbugs-maven-plugin/)
+- [PMD Main Page](https://pmd.github.io/)
+- [PMD Java Rules](https://pmd.github.io/pmd/pmd_rules_java.html)
+- [PMD Maven Plugin Docs](https://maven.apache.org/plugins/maven-pmd-plugin/index.html)

@@ -78,8 +78,10 @@
         </configuration>
       </plugin>
       <plugin>
-        <!-- TODO: Link to SpotBugs documentation -->
-        <!-- TODO: Make a custom filter file to tell spotbugs to exclude any files in the test directory -->
+        <!--
+          Docs:  https://spotbugs.readthedocs.io/en/latest/maven.html 
+          Plugin Docs: https://spotbugs.github.io/spotbugs-maven-plugin/#:~:text=SpotBugs%20uses%20static%20analysis%20to,do%20not%20indicate%20real%20errors.
+        -->
 
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
@@ -110,7 +112,6 @@
             <ruleset>src/main/resources/pmd/custom-ruleset.xml</ruleset>
           </rulesets>
           <excludes>
-            <!-- Do not run PMD against test files. We only care about source code -->
             <exclude>**/test/**</exclude>
           </excludes>
         </configuration>
