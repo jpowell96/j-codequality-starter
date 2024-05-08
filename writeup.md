@@ -1,3 +1,5 @@
+# We Have Code Quality At Home
+
 The best tool for the job isn't always the best tool you have available.
 
 Engineering teams are often have the build vs. buy conversation. Do we want to "buy" an off-the-shelf
@@ -17,9 +19,9 @@ You get a few benefits of integrating automated code quality tools in your proje
 2. Easier onboarding of new team members coming from different tech stacks
 3. Evangelize good practices across the codebase
 
-## We Have Code Quality At Home
+## The Tools
 
-SonarQube is one of the most common off-the-shelf code quality solutions, but I'm going to highlight 3 open source java plugins for "good enough" code quality in your Java projects.
+SonarQube is one of the most common off-the-shelf code quality solutions, but I'm going to highlight 3 open source java plugins for "good enough" code quality in your Java projects: Spotless, SpotBugs, and PMD
 
 
 ### Spotless
