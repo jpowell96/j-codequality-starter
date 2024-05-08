@@ -1,6 +1,3 @@
-
-1. Background story with nice tag line.
-
 The best tool for the job isn't always the best tool you have available.
 
 Engineering teams are often have the build vs. buy conversation. Do we want to "buy" an off-the-shelf
